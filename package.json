@@ -1,0 +1,24 @@
+{
+  "name": "manager-reports",
+  "version": "1.0.0",
+  "description": "manager of reports of specific depencies used",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josiasmartins/manager-reports.git"
+  },
+  "keywords": [
+    "manager",
+    "reports",
+    "depencies"
+  ],
+  "author": "teimosinhos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josiasmartins/manager-reports/issues"
+  },
+  "homepage": "https://github.com/josiasmartins/manager-reports#readme"
+}
