@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const port = 3001;
@@ -16,6 +17,73 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
 })
+
+app.post('/api/read-all-datas', (req, res) => {
+  const folder = req.body.folder;
+  const depedency = req.body.depedency;
+
+  const result = findDepedencySync(folder, depedency);
+
+  res.header("Access-Control-Allow-Origin", "*");
+  res.json(result);
+})
+
+const findDepedencySync = (folder, depedency, root = folder) => {
+  const files = fs.readFileSync(folder);
+  const results = [];
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+
+    if (file.startsWith('node_modules') || file.startsWith('.git') || file.startsWith('coverage')) {
+      continue;
+    }
+
+    const pathComplet = path.join(folder, file);
+    const pathRelative = path.relative(root, pathComplet);
+    const stats = fs.statSync(pathComplet);
+
+    if (stats.isDirectory()) {
+      const aboutResult = findDepedencySync(pathComplet, depedency, root);
+      results.push(...aboutResult);
+    } else {
+      const lines = fs.readFileSync(pathComplet, { encoding: 'utf-8' }).split('\n');
+
+      for (let l = 0; l < lines.length; l++) {
+        let line = lines[l];
+
+        if (line.includes(depedency)) {
+          line = filterOnClass(line);
+
+          const object = {
+            file: file,
+            usedDepedency: line,
+            pathRelative: pathRelative
+          }
+
+          break;
+
+        }
+
+      }
+    }
+
+  }
+
+  return results;
+}
+
+const filterOnClass = (words) => {
+  const onlyClass = /\{([\s\S]*?)\}/;
+  const removeSpace = /\s/g;
+
+  if (onlyClass.test(words)) {
+    const classList = words.match(onlyClass)[1];
+    return classList.replace(removeSpace, '').split(',');
+  }
+
+  return [];
+}
 
 // run the server
 app.listen(port, () => {
