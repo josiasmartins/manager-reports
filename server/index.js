@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());  
 
 // execute file index.html
-app.get('/', (req, res) => {
+app.get('https://manager-reports.vercel.app/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
 })
 
