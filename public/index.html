@@ -7,6 +7,7 @@
   <title>Document</title>
  
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="loader.css">
 
   <style>
     
@@ -26,71 +27,46 @@
     </div>
 
     <div class="container-input">
-      <input class="input" type="text" required placeholder="folder">
-      <input class="input" type="text" required placeholder="depdencies">
+      <input id="folder" class="input" type="text" required placeholder="folder">
+      <input id="depdency" class="input" type="text" oninput="updateValue()" required placeholder="depdencies">
     </div>
 
     <div class="container-button">
 
-      <button>Find</button>
+      <button class="button-find">Find</button>
     </div>
 
     <div class="container-table">
-      <h3>File, used, relative</h3>
+      <h3 class="lib"></h3>
       <table>
         <thead>
           <tr>
-            <th>File</th>
-            <th>usa depdenci</th>
-            <th>path relative</th>
+            <th>FILE</th>
+            <th>USED OF LIB</th>
+            <th>PATH RELATIVE</th>
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <th>novo</th>
-            <th>tres tres tres tres tres tres trestrestrestres trestrestres trestrestres</th>
-            <th>3</th>
-          </tr>
-          <tr>
-            <th>novo</th>
-            <th>tres</th>
-            <th>3</th>
-          </tr>
-          <tr>
-            <th>novo</th>
-            <th>tres</th>
-            <th>3</th>
-          </tr>
+        <tbody class="tbody-list">
         </tbody>
       </table>
 
-      <h3>Count</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Used</th>
-            <th>Count</th>
-          </tr>
-        </thead>
+      </div>
 
-        <tbody>
-          <tr>
-            <th>novo</th>
-            <th>tres tres tres tres tres tres trestrestrestres trestrestres trestrestres</th>
+      <table class="table-count">
+        <h3>Counts</h3>
 
-          </tr>
-          <tr>
-            <th>novo</th>
-            <th>3</th>
-          </tr>
-          <tr>
-            <th>novo</th>
-
-            <th>3</th>
-          </tr>
-        </tbody>
       </table>
+    </div>
+
+    <!-- <div>
+      <span class="loader"></span>
+    </div> -->
+
+    <div class="loader"></div>
+
+    <div class="error">
+      <p id="not-result" style="display:none;">Nenhum resultado encontrado.</p>
     </div>
 
   </main>
@@ -99,7 +75,7 @@
     <p>Teimosinhos</p>
   </footer>
 
-  <script></script>
+  <script src="./javascript/main.js"></script>
 
 </body>
 </html>
