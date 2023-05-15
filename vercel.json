@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 2,
   "env": {
     "PORT": "https://manager-reports.vercel.app/",
     "OUTRA_VARIAVEL": "valor"
