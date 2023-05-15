@@ -1,7 +1,20 @@
 {
-  "version": 2,
+  "version": 1,
   "env": {
     "PORT": "https://manager-reports.vercel.app/",
     "OUTRA_VARIAVEL": "valor"
-  }
+  },
+  "build": [
+    {
+      "src": "server/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "(.*)",
+      "dest": "server/index.js"
+    }
+  ]
+
 }
