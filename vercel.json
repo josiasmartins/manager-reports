@@ -5,10 +5,7 @@
     "OUTRA_VARIAVEL": "valor"
   },
   "build": [
-    {
-      "src": "server/index.js",
-      "use": "@vercel/node"
-    }
+    {"src": "server/index.js", "use": "@vercel/node"}
   ],
   "routes": [
     {
