@@ -2,12 +2,15 @@ const folder = document.querySelector('#folder');
 const depdency = document.querySelector('#depdency');
 const button = document.querySelector('.button-find')
 const tableCount = document.querySelector('.table-count');
+// error(false);
 
+const labelError = document.querySelector('.error');
 
  // form
  const tBody = document.querySelector('.tbody-list');
 
 button.addEventListener('click', () => {
+  error(false);
   console.log(folder, depdency)
   postData();
 })
@@ -29,6 +32,8 @@ function postData() {
 
   cleanTable();
 
+  isActiveLoader(true);
+
   fetch('/api/read-all-datas', {
     method: 'POST',
     headers: {
@@ -38,16 +43,27 @@ function postData() {
   })
     .then(response => response.json())
     .then(data => {
+
+      isActiveLoader(false);
       console.log(data)
 
       //  creatted table 
       tBodyClass(data);
 
       countTotal(data);
-
-
-
+    }).catch (err => {
+      error(true);
     })
+}
+
+const error = (isError) => {
+  if (isError) {
+    labelError.style.display = "block";
+    labelError.style.color = "red";
+    return;
+  }
+
+  labelError.style.display = "none";
 }
 
 function tBodyClass(data) {
@@ -128,7 +144,7 @@ const cleanTable = () => {
 const sortObjectByValue = (obj) => {
   const entries = Object.entries(obj);
 
-  entries.sort((a, b) => a[1] - b[1]);
+  entries.sort((a, b) => b[1] - a[1]);
 
   const sortedObj = {};
 
@@ -137,6 +153,19 @@ const sortObjectByValue = (obj) => {
   }
 
   return sortedObj;
+}
+
+const isActiveLoader = (active) => {
+  const loader = document.querySelector('.loader');
+  console.log(loader)
+  if (active) {
+    loader.style.display = 'block';
+    console.log("Desativadoo");
+    return;
+  }
+
+  loader.style.display = 'none';
+
 }
 
 
