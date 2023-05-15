@@ -169,3 +169,7 @@ footer {
   background-color: var(--purple);
   color: var(--white);
 }
+
+tbody {
+  word-break: break-all;
+}
