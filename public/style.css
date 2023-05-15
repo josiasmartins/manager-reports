@@ -209,3 +209,7 @@ tbody {
 .loader {
   display: none;
 } */
+
+td {
+  padding: 0 10px;
+}
