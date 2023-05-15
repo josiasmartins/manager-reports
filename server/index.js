@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
+const router = express.Router;
+
 const app = express();
 const port = 3001;
 
@@ -10,8 +12,8 @@ const port = 3001;
 app.use(express.static(path.join(__dirname, '../public')));
 
 
-// app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());  
 
 // execute file index.html
 app.get('/', (req, res) => {
@@ -22,6 +24,8 @@ app.post('/api/read-all-datas', (req, res) => {
   const folder = req.body.folder;
   const depedency = req.body.depedency;
 
+  console.log(folder, depedency, req.body);
+
   const result = findDepedencySync(folder, depedency);
 
   res.header("Access-Control-Allow-Origin", "*");
@@ -29,12 +33,14 @@ app.post('/api/read-all-datas', (req, res) => {
 })
 
 const findDepedencySync = (folder, depedency, root = folder) => {
-  const files = fs.readFileSync(folder);
+  const files = fs.readdirSync(folder);
   const results = [];
+
+  console.log('CHAMEI', files)
 
   for (let i = 0; i < files.length; i++) {
     const file = files[i];
-
+    console.log(file);
     if (file.startsWith('node_modules') || file.startsWith('.git') || file.startsWith('coverage')) {
       continue;
     }
@@ -61,6 +67,7 @@ const findDepedencySync = (folder, depedency, root = folder) => {
             pathRelative: pathRelative
           }
 
+          results.push(object);
           break;
 
         }
@@ -69,6 +76,7 @@ const findDepedencySync = (folder, depedency, root = folder) => {
     }
 
   }
+  console.log(results)
 
   return results;
 }
