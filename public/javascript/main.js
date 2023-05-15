@@ -2,6 +2,9 @@ const folder = document.querySelector('#folder');
 const depdency = document.querySelector('#depdency');
 const button = document.querySelector('.button-find')
 const tableCount = document.querySelector('.table-count');
+const libName = document.querySelector('.lib');
+
+libName.textContent = depdency.value;
 // error(false);
 
 const labelError = document.querySelector('.error');
@@ -107,8 +110,8 @@ const tbodyCount = (result) => {
   const headerCol1 = document.createElement('th');
   const headerCol2 = document.createElement('th');
 
-  headerCol1.innerHTML = "name";
-  headerCol2.innerText = "Counts";
+  headerCol1.innerHTML = "NAME";
+  headerCol2.innerText = "COUNTS";
 
   // tableCount.setAttribute('class')
 
@@ -139,6 +142,10 @@ const tbodyCount = (result) => {
 const cleanTable = () => {
   tBody.innerHTML = "";
   tableCount.innerHTML = '';
+}
+
+function updateValue() {
+  libName.innerText = depdency.value;
 }
 
 const sortObjectByValue = (obj) => {

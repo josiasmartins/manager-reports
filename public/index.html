@@ -28,7 +28,7 @@
 
     <div class="container-input">
       <input id="folder" class="input" type="text" required placeholder="folder">
-      <input id="depdency" class="input" type="text" required placeholder="depdencies">
+      <input id="depdency" class="input" type="text" oninput="updateValue()" required placeholder="depdencies">
     </div>
 
     <div class="container-button">
@@ -37,38 +37,25 @@
     </div>
 
     <div class="container-table">
-      <h3>File, used, relative</h3>
+      <h3 class="lib"></h3>
       <table>
         <thead>
           <tr>
-            <th>File</th>
-            <th>usa depdenci</th>
-            <th>path relative</th>
+            <th>FILE</th>
+            <th>USED OF LIB</th>
+            <th>PATH RELATIVE</th>
           </tr>
         </thead>
 
         <tbody class="tbody-list">
-          <!-- <tr>
-            <th>novo</th>
-            <th>tres tres tres tres tres tres trestrestrestres trestrestres trestrestres</th>
-            <th>3</th>
-          </tr>
-          <tr>
-            <th>novo</th>
-            <th>tres</th>
-            <th>3</th>
-          </tr>
-          <tr>
-            <th>novo</th>
-            <th>tres</th>
-            <th>3</th>
-          </tr> -->
         </tbody>
       </table>
 
       </div>
-      <h3>Count</h3>
+
       <table class="table-count">
+        <h3>Counts</h3>
+
       </table>
     </div>
 
