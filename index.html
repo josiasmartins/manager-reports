@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .sharingan {
+      width: 400px;
+      height: 400px;
+      position: relative;
+      background-color: black;
+      border-radius: 50%;
+      overflow: hidden;
+      animation: rotate 4s linear infinite;
+    }
+
+    .inner-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .tomoe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      background-color: white;
+      border-radius: 50%;
+      box-shadow: 0 0 15px 10px white;
+    }
+
+    .tomoe::before,
+    .tomoe::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      border-radius: 50%;
+    }
+
+    .tomoe::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .tomoe::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sharingan">
+    <div class="inner-circle"></div>
+    <div class="tomoe"></div>
+  </div>
+</body>
+</html>
