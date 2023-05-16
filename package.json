@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "manager of reports of specific depencies used",
   "main": "index.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "start": "node server/index.js"
   },
