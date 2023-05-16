@@ -5,7 +5,7 @@ const fs = require('fs');
 const router = express.Router;
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = 3001;
 
 // run static content the folder "public"
 // app.use(express.static('public'));
