@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
-const router = express.Router;
+// const router = express.Router;
 
 const app = express();
 const port = process.env.PORT || 3001;
