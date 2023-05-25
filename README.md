@@ -10,25 +10,16 @@ O **Manager Reports** é um projeto em Node.js que gera um relatório sobre uma 
 
 git clone https://github.com/josiasmartins/manager-reports.git
 
-csharp
-Copy code
-
 2. Instale as dependências:
 
 cd manager-reports
 npm install
-
-markdown
-Copy code
 
 ## Utilização
 
 1. Inicie o servidor:
 
 npm start
-
-less
-Copy code
 
 2. Abra o navegador da web e acesse [http://localhost:3001](http://localhost:3001).
 
@@ -52,4 +43,4 @@ Este projeto foi desenvolvido como parte de um curso de gerenciamento de projeto
 
 ## Contato
 
-Para qualquer dúvida, entre em contato com o autor do projeto em teimo
+Para qualquer dúvida, entre em contato com o autor do projeto josiasmartinscaitano@gmail.com
