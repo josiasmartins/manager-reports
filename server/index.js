@@ -21,6 +21,13 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
 })
 
+app.get('/api/dados', (req, res) => {
+  const data = [{name: 'naruto', sobrenome: 'uzumaki'}];
+  res.header("Access-Control-Allow-Origin", "*");
+  console.log('CHAMEI');
+  res.json(data);
+})
+
 app.post('/api/read-all-datas', (req, res) => {
   const folder = req.body.folder;
   const depedency = req.body.depedency;
