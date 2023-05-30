@@ -37,7 +37,16 @@ git clone https://github.com/josiasmartins/manager-reports.git
 
 5. O relatório exibirá os nomes dos arquivos, o uso da dependência especificada e os caminhos relativos à raiz do projeto.
 
-## Contribuição
+
+
+## Contribuidores
+
+- **Josias Martins Caitano**
+- **Kleiton Tavares Melo**
+- **Mariah Guedes Hermínio de Lima**
+- **Milena Da Silva Martins Machado**
+- **Thiago Barbosa de Araujo**
+- **Paulo Bruno**
 
 Contribuições são bem-vindas! Se você encontrar algum bug ou tiver sugestões de melhoria, por favor, crie uma issue ou envie um pull request.
 
