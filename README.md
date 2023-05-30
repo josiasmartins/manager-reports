@@ -45,8 +45,8 @@ git clone https://github.com/josiasmartins/manager-reports.git
 - **Kleiton Tavares Melo**
 - **Mariah Guedes Hermínio de Lima**
 - **Milena Da Silva Martins Machado**
-- **Thiago Barbosa de Araujo**
 - **Paulo Bruno**
+- **Thiago Barbosa de Araujo**
 
 Contribuições são bem-vindas! Se você encontrar algum bug ou tiver sugestões de melhoria, por favor, crie uma issue ou envie um pull request.
 
